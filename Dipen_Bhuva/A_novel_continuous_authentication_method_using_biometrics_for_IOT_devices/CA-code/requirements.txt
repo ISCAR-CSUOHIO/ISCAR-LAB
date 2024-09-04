@@ -1,0 +1,8 @@
+tensorflow
+progress
+matplotlib
+numpy
+pandas
+keras 
+scikit-learn
+

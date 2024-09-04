@@ -1,0 +1,40 @@
+digraph {
+	start [label=Start]
+	import [label="Import libraries"]
+	weightTransform [label="Define weightTransform function"]
+	rebuildModelENN [label="Define rebuildModelENN function"]
+	dataProcessing [label="Define dataProcessing function"]
+	databaseGeneration [label="Define databaseGeneration function"]
+	authentication [label="Define authentication function"]
+	login [label="Define login function"]
+	main_code [label="Main Code"]
+	while_loop [label="Check condition"]
+	check_accuracy [label="Check accuracy"]
+	gesture_model_path [label="Load pre-trained model"]
+	predictGesture [label="Predict EMG signal"]
+	authorization_granted [label="Authorization granted"]
+	print [label="Print accuracy"]
+	plt_plot [label="Plot accuracy vs. time"]
+	plt_show [label="Display plot"]
+	end [label=End]
+	start -> import
+	import -> weightTransform
+	weightTransform -> rebuildModelENN
+	rebuildModelENN -> dataProcessing
+	dataProcessing -> databaseGeneration
+	databaseGeneration -> authentication
+	authentication -> login
+	login -> main_code
+	main_code -> while_loop
+	while_loop -> dataProcessing [label=yes]
+	while_loop -> check_accuracy [label=no]
+	check_accuracy -> gesture_model_path [label=yes]
+	gesture_model_path -> predictGesture
+	predictGesture -> authorization_granted
+	authorization_granted -> while_loop [label=yes]
+	authorization_granted -> print [label=no]
+	print -> while_loop
+	check_accuracy -> plt_plot [label=no]
+	plt_plot -> plt_show
+	plt_show -> end
+}
